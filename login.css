@@ -1,0 +1,78 @@
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin-left: 600px;
+    margin-top: 10px;
+}
+
+
+
+.login-bt {
+    width: 100px;
+    padding: 12px 20px;
+    background-color: #06cbe9d2; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: absolute;
+    left: 91%;
+    right: 20px;
+    top: 30px;
+}
+.login-bt a{
+    text-decoration: none;
+    color: aqua;
+}
+.login-bt:hover {
+    background-color: #45a049; /* Darker green on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.login-bt:active {
+    background-color: #3e8e41; /* Even darker green when clicked */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px); /* Button movement when pressed */
+}
+
+.login-bt:focus {
+    outline: none; /* Remove default focus border */
+    box-shadow: 0 0 5px #4CAF50; /* Focused shadow */
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+}
+
+.signup-link a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 799px){
+    .login-container{
+        margin: auto;
+    }
+}
+@media (min-width: 680px) and (max-width: 1200px){
+    .login-container{
+        margin: auto;
+    }
+    .quick{
+        /* display: inline; */
+        float: right;
+    }
+}

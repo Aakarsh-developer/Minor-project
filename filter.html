@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Filters</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .filter-container {
+      width: 25%;
+      padding: 20px;
+      background-color: #f4f4f9;
+      border-right: 1px solid #ccc;
+    }
+
+    .filter-container h3 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .filter-group input, .filter-group select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .filter-group button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .filter-group button:hover {
+      background-color: #2980b9;
+    }
+
+    .room-listings {
+      width: 75%;
+      padding: 20px;
+    }
+
+    .room-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .room-card h4 {
+      margin: 0 0 10px;
+    }
+
+    .room-card p {
+      margin: 5px 0;
+    }
+
+    .room-card .price {
+      font-weight: bold;
+      color: #27ae60;
+    }
+    img{
+        height: 100px;
+        width: 100px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Filter Section -->
+<div class="filter-container">
+  <h3>Filter Rooms</h3>
+
+  <!-- Price Range Filter -->
+  <div class="filter-group">
+    <label for="price-range">Price Range (₹)</label>
+    <input type="number" id="min-price" placeholder="Min Price">
+    <input type="number" id="max-price" placeholder="Max Price" style="margin-top: 10px;">
+  </div>
+
+  <!-- Location Filter -->
+  <div class="filter-group">
+    <label for="location">Location</label>
+    <select id="location">
+      <option value="">Select Location</option>
+      <option value="near_college">Near College</option>
+      <option value="city_center">City Center</option>
+      <option value="suburbs">Suburbs</option>
+    </select>
+  </div>
+
+  <!-- Room Type Filter -->
+  <div class="filter-group">
+    <label for="room-type">Room Type</label>
+    <select id="room-type">
+      <option value="">Select Room Type</option>
+      <option value="single">Single Room</option>
+      <option value="shared">Shared Room</option>
+      <option value="apartment">Apartment</option>
+    </select>
+  </div>
+
+  <!-- Apply Filters Button -->
+  <div class="filter-group">
+    <button onclick="applyFilters()">Apply Filters</button>
+  </div>
+</div>
+
+<!-- Room Listings Section -->
+<div class="room-listings" id="room-listings">
+  <div class="room-card" data-price="6000" data-location="near_college" data-type="single">
+    <h4>Single Room near College</h4>
+    <p>Furnished room with Wi-Fi and attached bathroom.</p>
+    <p class="price">₹6,000/month</p>
+    <img src="./1.jpg" alt="">
+  </div>
+
+  <div class="room-card" data-price="4000" data-location="city_center" data-type="shared">
+    <h4>Shared Room in City Center</h4>
+    <p>Spacious shared room with balcony and laundry facilities.</p>
+    <p class="price">₹4,000/month</p>
+    <img src="./2.jpeg" alt="">
+  </div>
+
+  <div class="room-card" data-price="12000" data-location="suburbs" data-type="apartment">
+    <h4>2 BHK Apartment in Suburbs</h4>
+    <p>Well-furnished apartment with all amenities.</p>
+    <p class="price">₹12,000/month</p>
+    <img src="./3.jpg" alt="">
+  </div>
+
+  <div class="room-card" data-price="3000" data-location="suburbs" data-type="Single Room">
+    <h4>Single Room in Shastri nagar</h4>
+    <p>Well-furnished room with all amenities.</p>
+    <p class="price">₹3,000/month</p>
+    <img src="./4.jpg" alt="">
+  </div>
+
+  <div class="room-card" data-price="1500" data-location="suburbs" data-type="Shared Room">
+    <h4>Shared Room Apartment in Suburbs</h4>
+    <p>Well-furnished rooms with all amenities.</p>
+    <p class="price">₹1,500/month</p>
+    <img src="./5.jpg" alt="">
+  </div>
+</div>
+
+<script>
+  function applyFilters() {
+    // Get filter values
+    const minPrice = parseInt(document.getElementById('min-price').value) || 0;
+    const maxPrice = parseInt(document.getElementById('max-price').value) || Infinity;
+    const location = document.getElementById('location').value;
+    const roomType = document.getElementById('room-type').value;
+
+    // Get all room cards
+    const roomCards = document.querySelectorAll('.room-card');
+
+    // Filter rooms
+    roomCards.forEach(card => {
+      const price = parseInt(card.getAttribute('data-price'));
+      const cardLocation = card.getAttribute('data-location');
+      const cardType = card.getAttribute('data-type');
+
+      // Check if the card matches the filters
+      const matchesPrice = price >= minPrice && price <= maxPrice;
+      const matchesLocation = location === "" || cardLocation === location;
+      const matchesType = roomType === "" || cardType === roomType;
+
+      // Show or hide the card based on filter
+      if (matchesPrice && matchesLocation && matchesType) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

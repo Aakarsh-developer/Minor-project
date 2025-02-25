@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Rental Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./filter.css">
+</head>
+<body>
+    <header>
+        <h1>Rental Website</h1>
+        <button class="login-bt" onclick="loginpage()" type="submit">
+            <a href="./login.html" style="color: white;"><b>Login</b></a>
+        </button>
+        <a class="filter-btn" href="./filter.html">Room filters</a>
+    </header>
+   
+      
+
+    <!-- navigation bar -->
+    <nav class="navbar">
+        <!-- <div class="logo">MyWebsite</div> -->
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./PAYMENT.HTML">Payment</a></li>
+        </ul>
+        <button class="mobile-menu-icon" onclick="toggleMenu()">☰</button>
+    </nav>
+    <!-- navigaion bar ending -->
+    
+
+    <section id="add-room-section" >
+        <h2>Add a New Room</h2>
+        <form id="add-room-form">
+            <input type="text" id="title" placeholder="Title" required>
+            <textarea id="description" placeholder="Description" required></textarea>
+            <input type="number" id="rent" placeholder="Rent" required>
+            <input type="text" id="amenities" placeholder="Amenities (comma-separated)" required>
+            <input type="text" id="location" placeholder="Location" required>
+            <input type="text" id="contactInfo" placeholder="Contact Info" required>
+            <button type="submit">Add Room</button>
+        </form>
+    </section>
+
+    <section id="room-list-section">
+        <h2>Available Rooms</h2>
+        <div id="room-list">
+            <!-- Room listings will be appended here by JavaScript -->
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+          <!-- About Us Section -->
+          <div class="footer-column">
+            <h3>About Us</h3>
+            <p>We provide the best rental solutions for your needs, including cars, homes, and equipment. Reliable, affordable, and efficient!</p>
+          </div>
+    
+          <!-- Quick Links Section -->
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+    
+          <!-- Contact Section -->
+          <div class="footer-column">
+            <h3>Contact</h3>
+            <ul>
+              <li>Email: info@rentalwebsite.com</li>
+              <li>Phone: +1 234 567 890</li>
+              <li>Address: 123 Rental, Jabalpur Madhya Pradesh</li>
+            </ul>
+          </div>
+    
+          <!-- Social Media Section -->
+          <div class="footer-column">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><img src="./Facebook-Logosu.png" alt=""></a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><img src="./Twitter_logo.png" alt=""></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><img src="./1.png" alt=""> </a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><img src="./images-removebg-preview (1).png" alt=""></a>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 Rental Website. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+
+    <script src="./script.js"></script>
+
+</body>
+</html>
